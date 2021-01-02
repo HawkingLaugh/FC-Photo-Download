@@ -1,0 +1,2 @@
+- continues the count
+    - read the file name into list, get the greatest, store it and +1. then start the new count
