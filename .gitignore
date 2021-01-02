@@ -1,0 +1,6 @@
+.env
+*.jpg
+*.txt
+*.log
+temp.py
+*/
