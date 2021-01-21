@@ -1,2 +1,4 @@
-- continues the count
+- continues the count OK
     - read the file name into list, get the greatest, store it and +1. then start the new count
+
+- change urls in TMRR to avoid the dupilate download in largest number and logo photo in 0
