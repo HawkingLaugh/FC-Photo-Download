@@ -17,8 +17,8 @@ chromeOptions.add_argument("--headless")
 driver = webdriver.Chrome(PATH,chrome_options=chromeOptions)
 
 def login():
-    ID = 'yu16.hugo@gmail.com'
-    PW = '29042038'
+    ID = os.environ['ID']
+    PW = os.environ['PW']
     driver.get('https://k.lxixsxa.com/s/n29/login')
     driver.find_element_by_name('idpwLgid').click()
     driver.find_element_by_name('idpwLgid').send_keys(ID)
