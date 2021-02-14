@@ -15,8 +15,10 @@ chromeOptions.add_argument("--headless")
 driver = webdriver.Chrome(PATH,chrome_options=chromeOptions)
 
 def login():
-    ID = os.environ['TMID']
-    PW = os.environ['TMPW']
+    ID = os.environ.get('TMID')
+    PW = os.environ.get('TMPW')
+    # print(ID)
+    # print(PW)
     driver.get('https://smavoice.jp/s/sma03/artist/45/contents?ima=0631&ct=45_122_02&tp=122&arti=45')
     button = driver.find_element_by_xpath('//*[@id="login"]/table/tbody/tr/td[1]/form/div/button')
     button.click()
@@ -36,7 +38,8 @@ def get_imgs():
         if 'images' in link:
             imgs.append(link)
     return imgs
-    
+
+# duplicate src url on the latest item, find method to avoid the latest one into list. maybe pop/drop before pass to downloads
 if __name__ == "__main__":
     login()
     urls = get_imgs()

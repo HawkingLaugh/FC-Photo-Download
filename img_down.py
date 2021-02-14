@@ -1,5 +1,6 @@
 from read_the_maxfilename_for_sort import max_number
 import requests
+import os.path
 
 def download(url, name):
     # get url and name to download.
@@ -16,8 +17,12 @@ def downloads(urls):
 
     for i in file_num:
         url = urls[i]
-        print('Processing {0} url:{1}'.format(file_name[i],url))
-        img = open('Download/{}.jpg'.format(file_name[i]),'wb')
-        respone = requests.get(url, stream=True).content
-        img.write(respone)
-        img.close()
+        file = 'Download/{}.jpg'.format(file_name[i])
+        if os.path.isfile(file):
+            continue
+        else:
+            print('Processing {0} url:{1}'.format(file_name[i],url))
+            img = open('Download/{}.jpg'.format(file_name[i]),'wb')
+            respone = requests.get(url, stream=True).content
+            img.write(respone)
+            img.close()
